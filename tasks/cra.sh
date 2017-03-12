@@ -54,7 +54,7 @@ root_path=$PWD
 # Install all our packages
 "$root_path"/node_modules/.bin/lerna bootstrap
 
-cd packages/react-scripts
+cd packages/bem-react-scripts
 
 # Save package.json because we're going to touch it
 cp package.json package.json.orig
@@ -64,7 +64,11 @@ cp package.json package.json.orig
 node "$root_path"/tasks/replace-own-deps.js
 
 # Finally, pack react-scripts
+<<<<<<< HEAD
 scripts_path="$root_path"/packages/react-scripts/`npm pack`
+=======
+scripts_path=$root_path/packages/bem-react-scripts/`npm pack`
+>>>>>>> ca7fbfb... dev env only
 
 # Restore package.json
 rm package.json
@@ -79,8 +83,13 @@ mv package.json.orig package.json
 yarn cache clean || true
 
 # Go back to the root directory and run the command from here
+<<<<<<< HEAD
 cd "$root_path"
 node packages/create-react-app/index.js --scripts-version="$scripts_path" "$@"
+=======
+cd $root_path
+node packages/create-bem-react-app/index.js --scripts-version=$scripts_path "$@"
+>>>>>>> ca7fbfb... dev env only
 
 # Cleanup
 cleanup

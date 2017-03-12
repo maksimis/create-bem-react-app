@@ -42,7 +42,11 @@ function handle_exit {
 }
 
 function create_react_app {
+<<<<<<< HEAD
   node "$temp_cli_path"/node_modules/create-react-app/index.js "$@"
+=======
+  node "$temp_cli_path"/node_modules/create-bem-react-app/index.js $*
+>>>>>>> ca7fbfb... dev env only
 }
 
 # Check for the existence of one or more files.
@@ -80,7 +84,7 @@ cd "$root_path"
 if [[ `node --version | sed -e 's/^v//' -e 's/\..*//g'` -lt 4 ]]
 then
   cd $temp_app_path
-  err_output=`node "$root_path"/packages/create-react-app/index.js test-node-version 2>&1 > /dev/null || echo ''`
+  err_output=`node "$root_path"/packages/create-bem-react-app/index.js test-node-version 2>&1 > /dev/null || echo ''`
   [[ $err_output =~ You\ are\ running\ Node ]] && exit 0 || exit 1
 fi
 
@@ -126,11 +130,19 @@ npm start -- --smoke-test
 # ******************************************************************************
 
 # Pack CLI
+<<<<<<< HEAD
 cd "$root_path"/packages/create-react-app
 cli_path=$PWD/`npm pack`
 
 # Go to react-scripts
 cd "$root_path"/packages/react-scripts
+=======
+cd $root_path/packages/create-bem-react-app
+cli_path=$PWD/`npm pack`
+
+# Go to react-scripts
+cd $root_path/packages/bem-react-scripts
+>>>>>>> ca7fbfb... dev env only
 
 # Save package.json because we're going to touch it
 cp package.json package.json.orig
@@ -140,7 +152,11 @@ cp package.json package.json.orig
 node "$root_path"/tasks/replace-own-deps.js
 
 # Finally, pack react-scripts
+<<<<<<< HEAD
 scripts_path="$root_path"/packages/react-scripts/`npm pack`
+=======
+scripts_path=$root_path/packages/bem-react-scripts/`npm pack`
+>>>>>>> ca7fbfb... dev env only
 
 # Restore package.json
 rm package.json
@@ -249,10 +265,14 @@ verify_env_url
 echo yes | npm run eject
 
 # ...but still link to the local packages
+<<<<<<< HEAD
 npm link "$root_path"/packages/babel-preset-react-app
 npm link "$root_path"/packages/eslint-config-react-app
 npm link "$root_path"/packages/react-dev-utils
 npm link "$root_path"/packages/react-scripts
+=======
+npm link $root_path/packages/bem-react-scripts
+>>>>>>> ca7fbfb... dev env only
 
 # Test the build
 npm run build

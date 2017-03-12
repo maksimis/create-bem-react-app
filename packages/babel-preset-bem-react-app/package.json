@@ -1,0 +1,45 @@
+{
+<<<<<<< HEAD:packages/babel-preset-react-app/package.json
+  "name": "babel-preset-react-app",
+  "version": "2.1.1",
+  "description": "Babel preset used by Create React App",
+  "repository": "facebookincubator/create-react-app",
+=======
+  "name": "babel-preset-bem-react-app",
+  "version": "0.0.1",
+  "description": "Babel preset used by Create BEM React App",
+  "repository": "awinogradov/create-bem-react-app",
+>>>>>>> ca7fbfb... dev env only:packages/babel-preset-bem-react-app/package.json
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/awinogradov/create-bem-react-app/issues"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+<<<<<<< HEAD:packages/babel-preset-react-app/package.json
+    "babel-plugin-dynamic-import-node": "1.0.0",
+=======
+    "babel-plugin-bem-import": "^1.1.1",
+>>>>>>> ca7fbfb... dev env only:packages/babel-preset-bem-react-app/package.json
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "babel-plugin-transform-class-properties": "6.23.0",
+    "babel-plugin-transform-object-rest-spread": "6.23.0",
+    "babel-plugin-transform-react-constant-elements": "6.23.0",
+    "babel-plugin-transform-react-jsx": "6.23.0",
+    "babel-plugin-transform-react-jsx-self": "6.22.0",
+    "babel-plugin-transform-react-jsx-source": "6.22.0",
+    "babel-plugin-transform-regenerator": "6.22.0",
+    "babel-plugin-transform-runtime": "6.23.0",
+<<<<<<< HEAD:packages/babel-preset-react-app/package.json
+    "babel-preset-env": "1.2.1",
+=======
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-env": "1.1.8",
+    "babel-preset-latest": "6.22.0",
+>>>>>>> ca7fbfb... dev env only:packages/babel-preset-bem-react-app/package.json
+    "babel-preset-react": "6.23.0",
+    "babel-runtime": "6.23.0"
+  }
+}

@@ -42,7 +42,7 @@ function handle_exit {
 }
 
 function create_react_app {
-  node "$temp_cli_path"/node_modules/create-react-app/index.js "$@"
+  node "$temp_cli_path"/node_modules/create-bem-react-app/index.js $*
 }
 
 # Check for the existence of one or more files.
@@ -79,11 +79,11 @@ fi
 # ******************************************************************************
 
 # Pack CLI
-cd "$root_path"/packages/create-react-app
+cd $root_path/packages/create-bem-react-app
 cli_path=$PWD/`npm pack`
 
 # Go to react-scripts
-cd "$root_path"/packages/react-scripts
+cd $root_path/packages/bem-react-scripts
 
 # Save package.json because we're going to touch it
 cp package.json package.json.orig
@@ -93,7 +93,7 @@ cp package.json package.json.orig
 node "$root_path"/tasks/replace-own-deps.js
 
 # Finally, pack react-scripts
-scripts_path="$root_path"/packages/react-scripts/`npm pack`
+scripts_path=$root_path/packages/bem-react-scripts/`npm pack`
 
 # Restore package.json
 rm package.json
@@ -109,7 +109,7 @@ npm install "$cli_path"
 
 # Install the app in a temporary location
 cd $temp_app_path
-create_react_app --scripts-version="$scripts_path" --internal-testing-template="$root_path"/packages/react-scripts/fixtures/kitchensink test-kitchensink
+create_react_app --scripts-version=$scripts_path --internal-testing-template=$root_path/packages/bem-react-scripts/fixtures/kitchensink test-kitchensink
 
 # ******************************************************************************
 # Now that we used create-react-app to create an app depending on react-scripts,
@@ -118,9 +118,6 @@ create_react_app --scripts-version="$scripts_path" --internal-testing-template="
 
 # Enter the app directory
 cd test-kitchensink
-
-# Link to our preset
-npm link "$root_path"/packages/babel-preset-react-app
 
 # Test the build
 REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \
@@ -171,17 +168,12 @@ E2E_FILE=./build/index.html \
 # Finally, let's check that everything still works after ejecting.
 # ******************************************************************************
 
-# Unlink our preset
-npm unlink "$root_path"/packages/babel-preset-react-app
-
 # Eject...
 echo yes | npm run eject
 
 # ...but still link to the local packages
-npm link "$root_path"/packages/babel-preset-react-app
-npm link "$root_path"/packages/eslint-config-react-app
-npm link "$root_path"/packages/react-dev-utils
-npm link "$root_path"/packages/react-scripts
+npm link "$root_path"/packages/babel-preset-bem-react-app
+npm link $root_path/packages/bem-react-scripts
 
 # Test the build
 REACT_APP_SHELL_ENV_MESSAGE=fromtheshell \

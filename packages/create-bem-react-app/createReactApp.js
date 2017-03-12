@@ -57,7 +57,7 @@ const program = commander
       `    If you have any problems, do not hesitate to file an issue:`
     );
     console.log(
-      `      ${chalk.cyan('https://github.com/facebookincubator/create-react-app/issues/new')}`
+      `      ${chalk.cyan('https://github.com/awinogradov/create-bem-react-app/issues/new')}`
     );
     console.log();
   })

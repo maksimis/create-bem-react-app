@@ -113,7 +113,6 @@ module.exports = {
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
 };
 
-<<<<<<< HEAD:packages/react-scripts/config/paths.js
 const ownPackageJson = require('../package.json');
 const reactScriptsPath = resolveApp(`node_modules/${ownPackageJson.name}`);
 const reactScriptsLinked = fs.existsSync(reactScriptsPath) &&
@@ -122,12 +121,8 @@ const reactScriptsLinked = fs.existsSync(reactScriptsPath) &&
 // config before publish: we're in ./packages/react-scripts/config/
 if (
   !reactScriptsLinked &&
-  __dirname.indexOf(path.join('packages', 'react-scripts', 'config')) !== -1
+  __dirname.indexOf(path.join('packages', 'bem-react-scripts', 'config')) !== -1
 ) {
-=======
-// config before publish: we're in ./packages/bem-react-scripts/config/
-if (__dirname.indexOf(path.join('packages', 'bem-react-scripts', 'config')) !== -1) {
->>>>>>> ca7fbfb... dev env only:packages/bem-react-scripts/config/paths.js
   module.exports = {
     appPath: resolveApp('.'),
     appBuild: resolveOwn('../../build'),

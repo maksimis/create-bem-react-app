@@ -40,25 +40,13 @@ switch (script) {
       }
       process.exit(1);
     }
-<<<<<<< HEAD:packages/react-scripts/bin/react-scripts.js
     process.exit(result.status);
     break;
   default:
     console.log('Unknown script "' + script + '".');
-    console.log('Perhaps you need to update react-scripts?');
+    console.log('Perhaps you need to update bem-react-scripts?');
     console.log(
-      'See: https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#updating-to-new-releases'
+      'See: https://github.com/awinogradov/create-bem-react-app/blob/master/packages/bem-react-scripts/template/README.md#updating-to-new-releases'
     );
     break;
-=======
-    process.exit(1);
-  }
-  process.exit(result.status);
-  break;
-default:
-  console.log('Unknown script "' + script + '".');
-  console.log('Perhaps you need to update bem-react-scripts?');
-  console.log('See: https://github.com/awinogradov/create-bem-react-app/blob/master/packages/bem-react-scripts/template/README.md#updating-to-new-releases');
-  break;
->>>>>>> ca7fbfb... dev env only:packages/bem-react-scripts/bin/react-scripts.js
 }

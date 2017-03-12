@@ -59,7 +59,8 @@ module.exports = {
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
     // Errors should be considered fatal in development
-    require.resolve('react-dev-utils/crashOverlay'),
+    // FIXME: in the next release of create-react-app
+    // require.resolve('react-dev-utils/crashOverlay'),
     // Finally, this is your app's code:
     paths.appIndexJs,
     // We include the app code last so that if there is a runtime error during
@@ -127,39 +128,37 @@ module.exports = {
             // @remove-on-eject-end
             loader: 'eslint-loader',
           },
-<<<<<<< HEAD:packages/react-scripts/config/webpack.config.dev.js
         ],
         include: paths.appSrc,
-=======
-          // @remove-on-eject-end
-          loader: 'eslint-loader'
-        }, {
-          loader: 'webpack-bem-loader',
-          options: {
-            levels: [
-              `./src/common`,
-              `./src/desktop`,
-              `./src/touch`
-            ],
-            techs: ['js', 'css']
-          }
-        }, {
-          loader: 'babel-loader',
-          options: {
-            // @remove-on-eject-begin
-            babelrc: false,
-            presets: [
-              require.resolve('babel-preset-es2015'),
-              require.resolve('babel-preset-bem-react-app')],
-            // @remove-on-eject-end
-            // This is a feature of `babel-loader` for webpack (not Babel itself).
-            // It enables caching results in ./node_modules/.cache/babel-loader/
-            // directory for faster rebuilds.
-            cacheDirectory: true
-          }
-        }],
-        include: paths.appSrc
->>>>>>> ca7fbfb... dev env only:packages/bem-react-scripts/config/webpack.config.dev.js
+      },
+      {
+        test: /\.(js|jsx)$/,
+        use: [
+          {
+            loader: 'webpack-bem-loader',
+            options: {
+              levels: [`./src/common`, `./src/desktop`, `./src/touch`],
+              techs: ['js', 'css'],
+            },
+          },
+          {
+            loader: 'babel-loader',
+            options: {
+              // @remove-on-eject-begin
+              babelrc: false,
+              presets: [
+                require.resolve('babel-preset-es2015'),
+                require.resolve('babel-preset-react-app'),
+              ],
+              // @remove-on-eject-end
+              // This is a feature of `babel-loader` for webpack (not Babel itself).
+              // It enables caching results in ./node_modules/.cache/babel-loader/
+              // directory for faster rebuilds.
+              cacheDirectory: true,
+            },
+          },
+        ],
+        include: paths.appSrc,
       },
       // ** ADDING/UPDATING LOADERS **
       // The "url" loader handles all assets unless explicitly excluded.
@@ -197,25 +196,6 @@ module.exports = {
           name: 'static/media/[name].[hash:8].[ext]',
         },
       },
-<<<<<<< HEAD:packages/react-scripts/config/webpack.config.dev.js
-      // Process JS with Babel.
-      {
-        test: /\.(js|jsx)$/,
-        include: paths.appSrc,
-        loader: 'babel-loader',
-        options: {
-          // @remove-on-eject-begin
-          babelrc: false,
-          presets: [require.resolve('babel-preset-react-app')],
-          // @remove-on-eject-end
-          // This is a feature of `babel-loader` for webpack (not Babel itself).
-          // It enables caching results in ./node_modules/.cache/babel-loader/
-          // directory for faster rebuilds.
-          cacheDirectory: true,
-        },
-      },
-=======
->>>>>>> ca7fbfb... dev env only:packages/bem-react-scripts/config/webpack.config.dev.js
       // "postcss" loader applies autoprefixer to our CSS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.
       // "style" loader turns CSS into JS modules that inject <style> tags.

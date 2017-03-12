@@ -11,11 +11,15 @@
 const babelJest = require('babel-jest');
 
 module.exports = babelJest.createTransformer({
-<<<<<<< HEAD:packages/react-scripts/config/jest/babelTransform.js
   presets: [require.resolve('babel-preset-react-app')],
+  plugins: [
+    [
+      require.resolve('babel-plugin-bem-import'),
+      {
+        levels: [`./src/common/`, `./src/desktop/`, `./src/touch/`],
+        techs: ['js'],
+      },
+    ],
+  ],
   babelrc: false,
-=======
-  presets: [require.resolve('babel-preset-bem-react-app')],
-  babelrc: false
->>>>>>> ca7fbfb... dev env only:packages/bem-react-scripts/config/jest/babelTransform.js
 });

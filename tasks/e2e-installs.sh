@@ -77,11 +77,7 @@ fi
 # ******************************************************************************
 
 # Pack CLI
-<<<<<<< HEAD
-cd "$root_path"/packages/create-react-app
-=======
 cd $root_path/packages/create-bem-react-app
->>>>>>> ca7fbfb... dev env only
 cli_path=$PWD/`npm pack`
 
 # Install the CLI in a temporary location
@@ -104,13 +100,8 @@ grep '"version": "0.4.0"' node_modules/bem-react-scripts/package.json
 # Test --scripts-version with a tarball url
 # ******************************************************************************
 
-<<<<<<< HEAD
-cd "$temp_app_path"
-create_react_app --scripts-version=https://registry.npmjs.org/react-scripts/-/react-scripts-0.4.0.tgz test-app-tarball-url
-=======
 cd $temp_app_path
 create_react_app --scripts-version=https://registry.npmjs.org/bem-react-scripts/-/bem-react-scripts-0.4.0.tgz test-app-tarball-url
->>>>>>> ca7fbfb... dev env only
 cd test-app-tarball-url
 
 # Check corresponding scripts version is installed.

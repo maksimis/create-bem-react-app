@@ -7,15 +7,10 @@
     "e2e": "tasks/e2e-simple.sh",
     "postinstall": "lerna bootstrap",
     "publish": "tasks/release.sh",
-<<<<<<< HEAD
-    "start": "node packages/react-scripts/scripts/start.js",
-    "test": "node packages/react-scripts/scripts/test.js --env=jsdom",
+    "start": "node packages/bem-react-scripts/scripts/start.js",
+    "test": "node packages/bem-react-scripts/scripts/test.js --env=jsdom",
     "format": "prettier --trailing-comma es5 --single-quote --write 'packages/*/*.js' 'packages/*/!(node_modules)/**/*.js'",
     "precommit": "lint-staged"
-=======
-    "start": "node packages/bem-react-scripts/scripts/start.js",
-    "test": "node packages/bem-react-scripts/scripts/test.js --env=jsdom"
->>>>>>> ca7fbfb... dev env only
   },
   "devDependencies": {
     "eslint": "3.16.1",

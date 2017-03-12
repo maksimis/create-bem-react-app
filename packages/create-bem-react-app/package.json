@@ -5,13 +5,13 @@
     "react"
   ],
   "description": "Create BEM React apps with no build configuration.",
-  "repository": "awinogradov/create-bem-react-app",
+  "repository": "bem/create-bem-react-app",
   "license": "BSD-3-Clause",
   "engines": {
     "node": ">=4"
   },
   "bugs": {
-    "url": "https://github.com/awinogradov/create-bem-react-app/issues"
+    "url": "https://github.com/bem/create-bem-react-app/issues"
   },
   "files": [
     "index.js",

@@ -1,4 +1,4 @@
-# Create BEM React App [![Build Status](https://travis-ci.org/awinogradov/create-bem-react-app.svg?branch=master)](https://travis-ci.org/awinogradov/create-bem-react-app)
+# Create BEM React App [![Build Status](https://travis-ci.org/bem/create-bem-react-app.svg?branch=master)](https://travis-ci.org/bem/create-bem-react-app)
 
 Create BEM React apps with no build configuration.
 
@@ -6,7 +6,7 @@ Create BEM React apps with no build configuration.
 * [User Guide](https://github.com/facebookincubator/create-react-app) – Original Guide.
 
 Create React App works on macOS, Windows, and Linux.<br>
-If something doesn’t work please [file an issue](https://github.com/awinogradov/create-bem-react-app/issues/new).
+If something doesn’t work please [file an issue](https://github.com/bem/create-bem-react-app/issues/new).
 
 ## Quick Overview
 
@@ -101,7 +101,7 @@ You will see the build errors and lint warnings in the console.
 Runs the test watcher in an interactive mode.<br>
 By default, runs tests related to files changes since the last commit.
 
-[Read more about testing.](https://github.com/awinogradov/create-bem-react-app/blob/master/packages/bem-react-scripts/template/README.md#running-tests)
+[Read more about testing.](https://github.com/bem/create-bem-react-app/blob/master/packages/bem-react-scripts/template/README.md#running-tests)
 
 ### `npm run build` or `yarn build`
 

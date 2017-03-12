@@ -46,7 +46,7 @@ switch (script) {
     console.log('Unknown script "' + script + '".');
     console.log('Perhaps you need to update bem-react-scripts?');
     console.log(
-      'See: https://github.com/awinogradov/create-bem-react-app/blob/master/packages/bem-react-scripts/template/README.md#updating-to-new-releases'
+      'See: https://github.com/bem/create-bem-react-app/blob/master/packages/bem-react-scripts/template/README.md#updating-to-new-releases'
     );
     break;
 }

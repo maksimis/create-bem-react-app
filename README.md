@@ -70,7 +70,7 @@ my-app/
   src/
     App/
       Header/
-        App-Header.cs
+        App-Header.css
         App-Header.js
       Intro/
         App-Intro.css

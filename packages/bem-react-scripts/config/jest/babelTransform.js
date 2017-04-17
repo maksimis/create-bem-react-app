@@ -9,6 +9,8 @@
 'use strict';
 
 const babelJest = require('babel-jest');
+const bemConfig = require('bem-config')();
+const levels = Object.keys(bemConfig.levelMapSync());
 
 module.exports = babelJest.createTransformer({
   presets: [require.resolve('babel-preset-react-app')],
@@ -16,7 +18,7 @@ module.exports = babelJest.createTransformer({
     [
       require.resolve('babel-plugin-bem-import'),
       {
-        levels: [`./src/common/`, `./src/desktop/`, `./src/touch/`],
+        levels,
         techs: ['js'],
       },
     ],

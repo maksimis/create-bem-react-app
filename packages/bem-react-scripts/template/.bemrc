@@ -1,0 +1,15 @@
+{
+    "root": true,
+    "levels": {
+        "./src/common": {
+            "scheme": "nested",
+            "default": true
+        },
+        "./src/desktop": {
+            "scheme": "nested"
+        },
+        "./src/touch": {
+            "scheme": "nested"
+        }
+    }
+}

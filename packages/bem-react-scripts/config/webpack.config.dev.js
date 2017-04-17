@@ -16,8 +16,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
+const bemConfig = require('bem-config')();
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const levels = Object.keys(bemConfig.levelMapSync());
 
 // @remove-on-eject-begin
 // `path` is not used after eject - see https://github.com/facebookincubator/create-react-app/issues/1174
@@ -137,7 +139,7 @@ module.exports = {
           {
             loader: 'webpack-bem-loader',
             options: {
-              levels: [`./src/common`, `./src/desktop`, `./src/touch`],
+              levels,
               techs: ['js', 'css'],
             },
           },

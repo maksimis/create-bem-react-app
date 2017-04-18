@@ -87,7 +87,7 @@ function run(port) {
     console.log(chalk.cyan('Starting the development server...'));
     console.log();
 
-    openBrowser(`${protocol}://${host}:${port}/`);
+    !process.env.NO_BRO && openBrowser(`${protocol}://${host}:${port}/`);
   });
 }
 

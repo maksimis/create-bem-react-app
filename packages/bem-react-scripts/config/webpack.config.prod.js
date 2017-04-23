@@ -17,7 +17,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const paths = require('./paths');
+const bemConfig = require('bem-config')();
 const getClientEnvironment = require('./env');
+const levels = Object.keys(bemConfig.levelMapSync());
 
 // @remove-on-eject-begin
 // `path` is not used after eject - see https://github.com/facebookincubator/create-react-app/issues/1174
@@ -168,14 +170,32 @@ module.exports = {
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
+        use: [
+          {
+            loader: 'webpack-bem-loader',
+            options: {
+              levels,
+              techs: ['js', 'css'],
+            },
+          },
+          {
+            loader: 'babel-loader',
+            options: {
+              // @remove-on-eject-begin
+              babelrc: false,
+              presets: [
+                require.resolve('babel-preset-es2015'),
+                require.resolve('babel-preset-react-app'),
+              ],
+              // @remove-on-eject-end
+              // This is a feature of `babel-loader` for webpack (not Babel itself).
+              // It enables caching results in ./node_modules/.cache/babel-loader/
+              // directory for faster rebuilds.
+              cacheDirectory: true,
+            },
+          },
+        ],
         include: paths.appSrc,
-        loader: 'babel-loader',
-        // @remove-on-eject-begin
-        options: {
-          babelrc: false,
-          presets: [require.resolve('babel-preset-react-app')],
-        },
-        // @remove-on-eject-end
       },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.

@@ -16,7 +16,19 @@ const url = require('url');
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637
-const appDirectory = fs.realpathSync(process.env.ROOT || process.cwd());
+let subApp = false;
+function resolveRoot() {
+  if (process.env.ROOT) {
+    subApp = true;
+    return process.env.ROOT;
+  }
+  return process.cwd();
+}
+const root = resolveRoot();
+const appDirectory = fs.realpathSync(root);
+function resolveSubApp(relativePath) {
+  return path.resolve(root, relativePath);
+}
 function resolveApp(relativePath) {
   return path.resolve(appDirectory, relativePath);
 }
@@ -78,19 +90,31 @@ module.exports = {
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.js'),
-  appPackageJson: resolveApp('package.json'),
+  appPackageJson: subApp
+    ? resolveSubApp('package.json')
+    : resolveApp('package.json'),
   appSrc: resolveApp('src'),
-  yarnLockFile: resolveApp('yarn.lock'),
+  yarnLockFile: subApp ? resolveSubApp('yarn.lock') : resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.js'),
-  appNodeModules: resolveApp('node_modules'),
+  appNodeModules: subApp
+    ? resolveSubApp('node_modules')
+    : resolveApp('node_modules'),
   nodePaths: nodePaths,
-  publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json')),
+  publicUrl: getPublicUrl(
+    subApp ? resolveSubApp('package.json') : resolveApp('package.json')
+  ),
+  servedPath: getServedPath(
+    subApp ? resolveSubApp('package.json') : resolveApp('package.json')
+  ),
 };
 
 // @remove-on-eject-begin
 function resolveOwn(relativePath) {
-  return path.resolve(__dirname, '..', relativePath);
+  const prefix = path.resolve(__dirname, '..');
+  if (process.env.ROOT) {
+    return path.resolve(prefix, process.env.ROOT, relativePath);
+  }
+  return path.resolve(prefix, relativePath);
 }
 
 // config before eject: we're in ./node_modules/bem-react-scripts/config/
@@ -100,14 +124,22 @@ module.exports = {
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.js'),
-  appPackageJson: resolveApp('package.json'),
+  appPackageJson: subApp
+    ? resolveSubApp('package.json')
+    : resolveApp('package.json'),
   appSrc: resolveApp('src'),
-  yarnLockFile: resolveApp('yarn.lock'),
+  yarnLockFile: subApp ? resolveSubApp('yarn.lock') : resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.js'),
-  appNodeModules: resolveApp('node_modules'),
+  appNodeModules: subApp
+    ? resolveSubApp('node_modules')
+    : resolveApp('node_modules'),
   nodePaths: nodePaths,
-  publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json')),
+  publicUrl: getPublicUrl(
+    subApp ? resolveSubApp('package.json') : resolveApp('package.json')
+  ),
+  servedPath: getServedPath(
+    subApp ? resolveSubApp('package.json') : resolveApp('package.json')
+  ),
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3

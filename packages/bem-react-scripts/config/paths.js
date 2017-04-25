@@ -27,7 +27,7 @@ function resolveRoot() {
 const root = resolveRoot();
 const appDirectory = fs.realpathSync(root);
 function resolveSubApp(relativePath) {
-  return path.resolve(root, relativePath);
+  return path.resolve(process.cwd(), relativePath);
 }
 function resolveApp(relativePath) {
   return path.resolve(appDirectory, relativePath);

@@ -19,6 +19,7 @@ const bemConfig = require('bem-config')();
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 const levels = Object.keys(bemConfig.levelMapSync());
+const userOptions = bemConfig.moduleSync('create-bem-react-app') || {};
 
 // @remove-on-eject-begin
 // `path` is not used after eject - see https://github.com/facebookincubator/create-react-app/issues/1174
@@ -258,4 +259,5 @@ module.exports = {
   performance: {
     hints: false,
   },
+  target: userOptions.target || 'web',
 };

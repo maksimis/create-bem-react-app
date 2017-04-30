@@ -13,22 +13,13 @@
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
+const bemConfig = require('bem-config')();
+const userOptions = bemConfig.moduleSync('create-bem-react-app');
+const levels = Object.keys(bemConfig.levelMapSync());
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637
-let subApp = false;
-function resolveRoot() {
-  if (process.env.ROOT) {
-    subApp = true;
-    return process.env.ROOT;
-  }
-  return process.cwd();
-}
-const root = resolveRoot();
-const appDirectory = fs.realpathSync(root);
-function resolveSubApp(relativePath) {
-  return path.resolve(process.cwd(), relativePath);
-}
+const appDirectory = fs.realpathSync(process.cwd());
 function resolveApp(relativePath) {
   return path.resolve(appDirectory, relativePath);
 }
@@ -77,35 +68,32 @@ function getPublicUrl(appPackageJson) {
 // single-page apps that may serve index.html for nested URLs like /todos/42.
 // We can't use a relative path in HTML because we don't want to load something
 // like /todos/42/static/js/bundle.7289d.js. We have to know the root.
-function getServedPath(appPackageJson) {
-  const publicUrl = getPublicUrl(appPackageJson);
-  const servedUrl = envPublicUrl ||
-    (publicUrl ? url.parse(publicUrl).pathname : '/');
+const publicUrl = userOptions.publicUrl ||
+  getPublicUrl(resolveApp(userOptions.appPackageJson));
+function getServedPath() {
+  if (publicUrl === './') return publicUrl;
+
+  const pubUrl = publicUrl;
+  const servedUrl = envPublicUrl || (pubUrl ? url.parse(pubUrl).pathname : '/');
   return ensureSlash(servedUrl, true);
 }
 
 // config after eject: we're in ./config/
 module.exports = {
-  appBuild: resolveApp('build'),
-  appPublic: resolveApp('public'),
-  appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveApp('src/index.js'),
-  appPackageJson: subApp
-    ? resolveSubApp('package.json')
-    : resolveApp('package.json'),
-  appSrc: resolveApp('src'),
-  yarnLockFile: subApp ? resolveSubApp('yarn.lock') : resolveApp('yarn.lock'),
-  testsSetup: resolveApp('src/setupTests.js'),
-  appNodeModules: subApp
-    ? resolveSubApp('node_modules')
-    : resolveApp('node_modules'),
+  appBuild: resolveApp(userOptions.appBuild),
+  appPublic: resolveApp(userOptions.appPublic),
+  appHtml: resolveApp(userOptions.appHtml),
+  appIndexJs: resolveApp(userOptions.appIndexJs),
+  appPackageJson: resolveApp(userOptions.appPackageJson),
+  appSrc: resolveApp(userOptions.appSrc),
+  appLevels: levels,
+  appTarget: userOptions.target,
+  yarnLockFile: resolveApp(userOptions.yarnLockFile),
+  testsSetup: resolveApp(userOptions.testsSetup),
+  appNodeModules: resolveApp(userOptions.appNodeModules),
   nodePaths: nodePaths,
-  publicUrl: getPublicUrl(
-    subApp ? resolveSubApp('package.json') : resolveApp('package.json')
-  ),
-  servedPath: getServedPath(
-    subApp ? resolveSubApp('package.json') : resolveApp('package.json')
-  ),
+  publicUrl: publicUrl,
+  servedPath: getServedPath(),
 };
 
 // @remove-on-eject-begin
@@ -119,27 +107,21 @@ function resolveOwn(relativePath) {
 
 // config before eject: we're in ./node_modules/bem-react-scripts/config/
 module.exports = {
-  appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
-  appPublic: resolveApp('public'),
-  appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveApp('src/index.js'),
-  appPackageJson: subApp
-    ? resolveSubApp('package.json')
-    : resolveApp('package.json'),
-  appSrc: resolveApp('src'),
-  yarnLockFile: subApp ? resolveSubApp('yarn.lock') : resolveApp('yarn.lock'),
-  testsSetup: resolveApp('src/setupTests.js'),
-  appNodeModules: subApp
-    ? resolveSubApp('node_modules')
-    : resolveApp('node_modules'),
+  appPath: resolveApp(userOptions.appPath),
+  appBuild: resolveApp(userOptions.appBuild),
+  appPublic: resolveApp(userOptions.appPublic),
+  appHtml: resolveApp(userOptions.appHtml),
+  appIndexJs: resolveApp(userOptions.appIndexJs),
+  appPackageJson: resolveApp(userOptions.appPackageJson),
+  appSrc: resolveApp(userOptions.appSrc),
+  appLevels: levels,
+  appTarget: userOptions.target,
+  yarnLockFile: resolveApp(userOptions.yarnLockFile),
+  testsSetup: resolveApp(userOptions.testsSetup),
+  appNodeModules: resolveApp(userOptions.appNodeModules),
   nodePaths: nodePaths,
-  publicUrl: getPublicUrl(
-    subApp ? resolveSubApp('package.json') : resolveApp('package.json')
-  ),
-  servedPath: getServedPath(
-    subApp ? resolveSubApp('package.json') : resolveApp('package.json')
-  ),
+  publicUrl: publicUrl,
+  servedPath: getServedPath(),
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
@@ -150,7 +132,7 @@ const reactScriptsPath = resolveApp(`node_modules/${ownPackageJson.name}`);
 const reactScriptsLinked = fs.existsSync(reactScriptsPath) &&
   fs.lstatSync(reactScriptsPath).isSymbolicLink();
 
-// config before publish: we're in ./packages/react-scripts/config/
+// config before publish: we're in ./packages/bem-react-scripts/config/
 if (
   !reactScriptsLinked &&
   __dirname.indexOf(path.join('packages', 'bem-react-scripts', 'config')) !== -1

@@ -16,10 +16,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const paths = require('./paths');
-const bemConfig = require('bem-config')();
 const getClientEnvironment = require('./env');
-const levels = Object.keys(bemConfig.levelMapSync());
-const userOptions = bemConfig.moduleSync('create-bem-react-app') || {};
 
 // @remove-on-eject-begin
 // `path` is not used after eject - see https://github.com/facebookincubator/create-react-app/issues/1174
@@ -174,7 +171,7 @@ module.exports = {
           {
             loader: 'webpack-bem-loader',
             options: {
-              levels,
+              levels: paths.appLevels,
               techs: ['js', 'css'],
             },
           },
@@ -296,5 +293,5 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
   },
-  target: userOptions.target || 'web',
+  target: paths.appTarget,
 };

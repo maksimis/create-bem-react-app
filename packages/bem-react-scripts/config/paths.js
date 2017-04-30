@@ -15,6 +15,7 @@ const fs = require('fs');
 const url = require('url');
 const bemConfig = require('bem-config')();
 const userOptions = bemConfig.moduleSync('create-bem-react-app');
+const levels = Object.keys(bemConfig.levelMapSync());
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637
@@ -85,6 +86,8 @@ module.exports = {
   appIndexJs: resolveApp(userOptions.appIndexJs),
   appPackageJson: resolveApp(userOptions.appPackageJson),
   appSrc: resolveApp(userOptions.appSrc),
+  appLevels: levels,
+  appTarget: userOptions.target,
   yarnLockFile: resolveApp(userOptions.yarnLockFile),
   testsSetup: resolveApp(userOptions.testsSetup),
   appNodeModules: resolveApp(userOptions.appNodeModules),
@@ -111,6 +114,8 @@ module.exports = {
   appIndexJs: resolveApp(userOptions.appIndexJs),
   appPackageJson: resolveApp(userOptions.appPackageJson),
   appSrc: resolveApp(userOptions.appSrc),
+  appLevels: levels,
+  appTarget: userOptions.target,
   yarnLockFile: resolveApp(userOptions.yarnLockFile),
   testsSetup: resolveApp(userOptions.testsSetup),
   appNodeModules: resolveApp(userOptions.appNodeModules),

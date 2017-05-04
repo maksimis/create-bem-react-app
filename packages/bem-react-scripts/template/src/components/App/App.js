@@ -17,7 +17,7 @@ export default decl({
         <Intro key="i">
           To get started, edit
           {' '}
-          <code>src/common/App/App.js</code>
+          <code>src/components/App/App.js</code>
           {' '}
           and save to reload.
         </Intro>

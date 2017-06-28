@@ -15,7 +15,7 @@ const fs = require('fs');
 const url = require('url');
 const bemConfig = require('bem-config')();
 const userOptions = bemConfig.moduleSync('create-bem-react-app');
-const levels = Object.keys(bemConfig.levelMapSync());
+const levels = bemConfig.levelMapSync();
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637

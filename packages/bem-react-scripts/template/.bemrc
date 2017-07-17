@@ -1,6 +1,14 @@
 {
     "root": true,
     "levels": {
+        "node_modules/islands/common.blocks": {
+            "naming": "origin",
+            "scheme": "nested"
+        },
+        "node_modules/islands/desktop.blocks": {
+            "naming": "origin",
+            "scheme": "nested"
+        },
         "src/components": {
             "scheme": "nested",
             "default": true
@@ -15,6 +23,7 @@
             "appIndexJs": "src/index.js",
             "appPackageJson": "package.json",
             "appSrc": "src",
+            "legoSrc": "node_modules/islands",
             "yarnLockFile": "yarn.lock",
             "testsSetup": "src/setupTests.js",
             "appNodeModules": "node_modules",

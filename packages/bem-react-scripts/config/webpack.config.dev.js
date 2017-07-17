@@ -138,6 +138,9 @@ module.exports = {
             options: {
               levels: paths.appLevels,
               techs: ['js', 'css'],
+              techMap: {
+                js : ['react.js']
+              },
             },
           },
           {
@@ -157,7 +160,7 @@ module.exports = {
             },
           },
         ],
-        include: paths.appSrc,
+        include: [paths.appSrc, paths.legoSrc],
       },
       // ** ADDING/UPDATING LOADERS **
       // The "url" loader handles all assets unless explicitly excluded.

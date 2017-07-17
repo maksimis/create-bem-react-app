@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import 'b:Page';
-import App from 'b:App';
+import BPage from 'b:b-page';
+import App from 'b:app';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<BPage><App /></BPage>, document.getElementById('root'));

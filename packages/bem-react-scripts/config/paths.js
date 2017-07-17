@@ -86,6 +86,8 @@ module.exports = {
   appIndexJs: resolveApp(userOptions.appIndexJs),
   appPackageJson: resolveApp(userOptions.appPackageJson),
   appSrc: resolveApp(userOptions.appSrc),
+  // TODO: https://st.yandex-team.ru/ISL-3641
+  legoSrc: resolveApp(userOptions.legoSrc),
   appLevels: levels,
   appTarget: userOptions.target,
   yarnLockFile: resolveApp(userOptions.yarnLockFile),
@@ -114,6 +116,8 @@ module.exports = {
   appIndexJs: resolveApp(userOptions.appIndexJs),
   appPackageJson: resolveApp(userOptions.appPackageJson),
   appSrc: resolveApp(userOptions.appSrc),
+  // TODO: https://st.yandex-team.ru/ISL-3641
+  legoSrc: resolveApp(userOptions.legoSrc),
   appLevels: levels,
   appTarget: userOptions.target,
   yarnLockFile: resolveApp(userOptions.yarnLockFile),

@@ -1,15 +1,24 @@
 import React from 'react';
-import { decl } from 'bem-react-core';
+import { decl } from 'bem';
 
-import Button from 'b:button2 m:theme=normal m:size=m';
+import AppHeader from 'e:header';
+import AppFooter from 'e:footer';
+import AppWelcome from 'e:welcome';
 
-export default decl({
-  block: 'App',
-  content() {
-    return (
-      <span>
-        Welcome to BEM in your <Button theme="normal" size="m">React</Button>
-      </span>
-    );
+import Showcase from 'b:showcase';
+
+export default decl(
+  {
+    block: 'App',
+    content({ welcomeMsg }) {
+      return [
+        <AppWelcome msg={welcomeMsg} key="welcome" />,
+        <Showcase key="showcase" />,
+      ];
+    },
   },
-});
+  {
+    Header: AppHeader,
+    Footer: AppFooter,
+  }
+);

@@ -1,0 +1,14 @@
+.logo.logo_service_yes {
+    height: 38px;
+    margin-left: 9px;
+}
+
+.logo.logo_name_ys-en-87x35 ~ .logo.logo_service_yes {
+    width: 106px;
+    background-image: url('https://yastatic.net/q/logoaas/v1/Lego-as-src.svg');
+}
+
+.logo.logo_name_ys-ru-86x35 ~ .logo.logo_service_yes {
+    width: 132px;
+    background-image: url('https://yastatic.net/q/logoaas/v1/Лего-как-Лего.svg');
+}

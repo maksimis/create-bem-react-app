@@ -29,7 +29,8 @@
             "testsSetup": "src/setupTests.js",
             "appNodeModules": "node_modules",
             "publicUrl": "",
-            "target": "web"
+            "target": "web",
+            "appLangs": ["ru", "en"]
         }
     }
 }

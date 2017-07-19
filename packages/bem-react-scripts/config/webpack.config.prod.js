@@ -148,6 +148,7 @@ module.exports = {
           /\.gif$/,
           /\.jpe?g$/,
           /\.png$/,
+          /\.i18n\//,
         ],
         loader: 'file-loader',
         options: {
@@ -164,7 +165,12 @@ module.exports = {
           name: 'static/media/[name].[hash:8].[ext]',
         },
       },
-      // Process JS with Babel.
+      // Process keysets for plural values and custom tanker syntax
+      {
+        test: /\.i18n\//,
+        loader: 'webpack-bem-i18n-loader',
+      },
+      // Process JS with bem-loader & Babel.
       {
         test: /\.(js|jsx)$/,
         use: [
@@ -173,6 +179,12 @@ module.exports = {
             options: {
               levels: paths.appLevels,
               techs: ['js', 'css'],
+              techMap: {
+                js: ['react.js'],
+              },
+              langs: paths.appLangs,
+              // TODO: https://github.com/bem/webpack-bem-loader/issues/25
+              naming: 'origin',
             },
           },
           {
@@ -192,7 +204,7 @@ module.exports = {
             },
           },
         ],
-        include: paths.appSrc,
+        include: [paths.appSrc, paths.legoSrc],
       },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.

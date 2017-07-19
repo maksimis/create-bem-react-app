@@ -89,6 +89,7 @@ module.exports = {
   // TODO: https://st.yandex-team.ru/ISL-3641
   legoSrc: resolveApp(userOptions.legoSrc),
   appLevels: levels,
+  appLangs: userOptions.appLangs,
   appTarget: userOptions.target,
   yarnLockFile: resolveApp(userOptions.yarnLockFile),
   testsSetup: resolveApp(userOptions.testsSetup),
@@ -119,6 +120,7 @@ module.exports = {
   // TODO: https://st.yandex-team.ru/ISL-3641
   legoSrc: resolveApp(userOptions.legoSrc),
   appLevels: levels,
+  appLangs: userOptions.appLangs,
   appTarget: userOptions.target,
   yarnLockFile: resolveApp(userOptions.yarnLockFile),
   testsSetup: resolveApp(userOptions.testsSetup),

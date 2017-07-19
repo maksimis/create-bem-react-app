@@ -1,5 +1,5 @@
 import React from 'react';
-import { decl } from 'bem';
+import { decl } from 'islands/common.blocks/i-bem/i-bem.react.js';
 
 import Button from 'b:button2 m:theme=normal|action m:size=m';
 import Checkbox from 'b:checkbox m:theme=normal m:size=m';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { decl } from 'bem';
+import { decl } from 'islands/common.blocks/i-bem/i-bem.react.js';
 
 import Header from 'b:header2';
 import 'b:header2 e:logo m:size=m t:css';

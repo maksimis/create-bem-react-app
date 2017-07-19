@@ -130,6 +130,12 @@ module.exports = {
         ],
         include: paths.appSrc,
       },
+      // Process keysets for plural values and custom tanker syntax
+      {
+        test: /\.i18n\//,
+        loader: 'webpack-bem-i18n-loader',
+      },
+      // Process JS with bem-loader & Babel.
       {
         test: /\.(js|jsx)$/,
         use: [
@@ -139,8 +145,11 @@ module.exports = {
               levels: paths.appLevels,
               techs: ['js', 'css'],
               techMap: {
-                js : ['react.js']
+                js: ['react.js'],
               },
+              langs: paths.appLangs,
+              // TODO: https://github.com/bem/webpack-bem-loader/issues/25
+              naming: 'origin',
             },
           },
           {
@@ -181,6 +190,7 @@ module.exports = {
           /\.gif$/,
           /\.jpe?g$/,
           /\.png$/,
+          /\.i18n\//,
         ],
         loader: 'file-loader',
         options: {

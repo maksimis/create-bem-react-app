@@ -1,24 +1,27 @@
 {
-  "name": "create-bem-react-app",
+  "name": "create-lego-react-app",
   "version": "0.0.3",
   "keywords": [
     "react"
   ],
   "description": "Create BEM React apps with no build configuration.",
-  "repository": "bem/create-bem-react-app",
-  "license": "BSD-3-Clause",
+  "repository": "lego/create-lego-react-app",
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "registry": "http://npm.yandex-team.ru/"
+  },
   "engines": {
     "node": ">=4"
   },
   "bugs": {
-    "url": "https://github.com/bem/create-bem-react-app/issues"
+    "url": "https://github.yandex-team.ru/lego/create-lego-react-app/issues"
   },
   "files": [
     "index.js",
     "createReactApp.js"
   ],
   "bin": {
-    "create-bem-react-app": "./index.js"
+    "create-lego-react-app": "./index.js"
   },
   "dependencies": {
     "chalk": "^1.1.1",

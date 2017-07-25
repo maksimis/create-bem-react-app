@@ -33,7 +33,7 @@ const program = commander
   .option('--verbose', 'print additional logs')
   .option(
     '--scripts-version <alternative-package>',
-    'use a non-standard version of bem-react-scripts'
+    'use a non-standard version of lego-react-scripts'
   )
   .allowUnknownOption()
   .on('--help', () => {
@@ -57,7 +57,7 @@ const program = commander
       `    If you have any problems, do not hesitate to file an issue:`
     );
     console.log(
-      `      ${chalk.cyan('https://github.com/bem/create-bem-react-app/issues/new')}`
+      `      ${chalk.cyan('https://github.yandex-team.ru/lego/create-lego-react-app/issues/new')}`
     );
     console.log();
   })
@@ -209,7 +209,7 @@ function run(root, appName, version, verbose, originalDirectory, template) {
     .then(packageName => {
       checkNodeVersion(packageName);
 
-      // Since bem-react-scripts has been installed with --save
+      // Since lego-react-scripts has been installed with --save
       // we need to move it into devDependencies and rewrite package.json
       // also ensure react dependencies have caret version range
       fixDependencies(packageName);
@@ -272,7 +272,7 @@ function run(root, appName, version, verbose, originalDirectory, template) {
 }
 
 function getInstallPackage(version) {
-  let packageToInstall = 'bem-react-scripts';
+  let packageToInstall = 'lego-react-scripts';
   const validSemver = semver.valid(version);
   if (validSemver) {
     packageToInstall += `@${validSemver}`;
@@ -340,7 +340,7 @@ function getPackageName(installPackage) {
         return packageName;
       })
       .catch(err => {
-        // The package name could be with or without semver version, e.g. bem-react-scripts-0.2.0-alpha.1.tgz
+        // The package name could be with or without semver version, e.g. lego-react-scripts-0.2.0-alpha.1.tgz
         // However, this function returns package name only without semver version.
         console.log(
           `Could not extract the package name from the archive: ${err.message}`
@@ -355,8 +355,8 @@ function getPackageName(installPackage) {
       });
   } else if (installPackage.indexOf('git+') === 0) {
     // Pull package name out of git urls e.g:
-    // git+https://github.com/mycompany/bem-react-scripts.git
-    // git+ssh://github.com/mycompany/bem-react-scripts.git#v1.2.3
+    // git+https://github.com/mycompany/lego-react-scripts.git
+    // git+ssh://github.com/mycompany/lego-react-scripts.git#v1.2.3
     return Promise.resolve(installPackage.match(/([^\/]+)\.git(#.*)?$/)[1]);
   } else if (installPackage.indexOf('@') > 0) {
     // Do not match @scope/ when stripping off @version or @tag
@@ -404,7 +404,7 @@ function checkNodeVersion(packageName) {
     console.error(
       chalk.red(
         'You are running Node %s.\n' +
-          'Create BEM React App requires Node %s or higher. \n' +
+          'Create LEGO React App requires Node %s or higher. \n' +
           'Please update your version of Node.'
       ),
       process.version,
@@ -427,7 +427,7 @@ function checkAppName(appName) {
 
   // TODO: there should be a single place that holds the dependencies
   const dependencies = ['react', 'react-dom'];
-  const devDependencies = ['bem-react-scripts'];
+  const devDependencies = ['lego-react-scripts'];
   const allDependencies = dependencies.concat(devDependencies).sort();
   if (allDependencies.indexOf(appName) >= 0) {
     console.error(

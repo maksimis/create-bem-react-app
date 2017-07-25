@@ -96,7 +96,7 @@ module.exports = {
   },
   // @remove-on-eject-begin
   // Resolve loaders (webpack plugins for CSS, images, transpilation) from the
-  // directory of `bem-react-scripts` itself rather than the project directory.
+  // directory of `lego-react-scripts` itself rather than the project directory.
   resolveLoader: {
     modules: [
       paths.ownNodeModules,

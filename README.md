@@ -1,19 +1,20 @@
-# Create BEM React App [![Build Status](https://travis-ci.org/bem/create-bem-react-app.svg?branch=master)](https://travis-ci.org/bem/create-bem-react-app)
+# Create LEGO React App [![Build Status](https://travis-ci.org/lego/create-lego-react-app.svg?branch=master)](https://travis-ci.org/lego/create-lego-react-app)
 
-Create BEM React apps with no build configuration.
+Create LEGO React apps with no build configuration.
 
 * [Getting Started](#getting-started) – How to create a new app.
 * [User Guide](https://github.com/facebookincubator/create-react-app) – Original Guide.
 
 Create React App works on macOS, Windows, and Linux.<br>
-If something doesn’t work please [file an issue](https://github.com/bem/create-bem-react-app/issues/new).
+If something doesn’t work please [file an issue](https://github.yandex-team.ru/lego/create-lego-react-app/issues/new).
+Or better send us a message to [slack](https://clubs.at.yandex-team.ru/lego/lego-team.slack.com).
 
 ## Quick Overview
 
 ```sh
-npm install -g create-bem-react-app
+npm install -g create-lego-react-app
 
-create-bem-react-app my-app
+create-lego-react-app my-app
 cd my-app/
 npm start
 ```
@@ -37,7 +38,7 @@ Just create a project, and you’re good to go.
 Install it once globally:
 
 ```sh
-npm install -g create-bem-react-app
+npm install -g create-lego-react-app
 ```
 
 **You’ll need to have Node >= 4 on your machine**.
@@ -51,7 +52,7 @@ npm install -g create-bem-react-app
 To create a new app, run:
 
 ```sh
-create-bem-react-app my-app
+create-lego-react-app my-app
 cd my-app
 ```
 
@@ -68,19 +69,7 @@ my-app/
     favicon.ico
     index.html
   src/
-    App/
-      Header/
-        App-Header.css
-        App-Header.js
-      Intro/
-        App-Intro.css
-        App-Intro.js
-      App.css
-      App.js
-      App.test.js
-    Page/
-      Page.css
-    index.js
+    ...
 ```
 
 No configuration or complicated folder structures, just the files you need to build your app.<br>
@@ -101,7 +90,7 @@ You will see the build errors and lint warnings in the console.
 Runs the test watcher in an interactive mode.<br>
 By default, runs tests related to files changes since the last commit.
 
-[Read more about testing.](https://github.com/bem/create-bem-react-app/blob/master/packages/bem-react-scripts/template/README.md#running-tests)
+[Read more about testing.](https://github.com/lego/create-lego-react-app/blob/master/packages/lego-react-scripts/template/README.md#running-tests)
 
 ### `npm run build` or `yarn build`
 
@@ -121,4 +110,4 @@ Currently it includes something more than original Create React App package:
 
 ## Contributing
 
-We'd love to have your helping hand on `create-bem-react-app`! See [CONTRIBUTING.md](CONTRIBUTING.md) for more information on what we're looking for and how to get started.
+We'd love to have your helping hand on `create-lego-react-app`! See [CONTRIBUTING.md](CONTRIBUTING.md) for more information on what we're looking for and how to get started.

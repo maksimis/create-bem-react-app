@@ -1,6 +1,6 @@
-# Contributing to Create BEM React App
+# Contributing to Create LEGO React App
 
-Loving Create BEM React App and want to get involved? Thanks! There are plenty of ways you can help.
+Loving Create LEGO React App and want to get involved? Thanks! There are plenty of ways you can help.
 
 Please take a moment to review this document in order to make the contribution process easy and effective for everyone involved.
 
@@ -43,16 +43,16 @@ Please also provide a **test plan**, i.e. specify how you verified that your add
 
 ## Setting Up a Local Copy
 
-1. Clone the repo with `git clone https://github.com/bem/create-bem-react-app`
+1. Clone the repo with `git clone https://github.yandex-team.ru/lego/create-lego-react-app`
 
-2. Run `npm install` in the root `create-react-app` folder.
+2. Run `npm install` in the root `create-lego-react-app` folder.
 
 Once it is done, you can modify any file locally and run `npm start`, `npm test` or `npm run build` just like in a generated project.
 
 If you want to try out the end-to-end flow with the global CLI, you can do this too:
 
 ```
-npm run create-react-app my-app
+npm run create-lego-react-app my-app
 cd my-app
 ```
 

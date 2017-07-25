@@ -1,14 +1,14 @@
 {
   "private": true,
   "scripts": {
-    "build": "node packages/bem-react-scripts/scripts/build.js",
+    "build": "node packages/lego-react-scripts/scripts/build.js",
     "changelog": "lerna-changelog",
-    "create-bem-react-app": "tasks/cra.sh",
+    "create-lego-react-app": "tasks/cra.sh",
     "e2e": "tasks/e2e-simple.sh",
     "postinstall": "lerna bootstrap",
     "publish": "tasks/release.sh",
-    "start": "node packages/bem-react-scripts/scripts/start.js",
-    "test": "node packages/bem-react-scripts/scripts/test.js --env=jsdom",
+    "start": "node packages/lego-react-scripts/scripts/start.js",
+    "test": "node packages/lego-react-scripts/scripts/test.js --env=jsdom",
     "format": "prettier --trailing-comma es5 --single-quote --write 'packages/*/*.js' 'packages/*/!(node_modules)/**/*.js'",
     "precommit": "lint-staged"
   },

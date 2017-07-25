@@ -1,5 +1,5 @@
 node_modules/
 build
 my-app*
-packages/bem-react-scripts/template
-packages/bem-react-scripts/fixtures
+packages/lego-react-scripts/template
+packages/lego-react-scripts/fixtures

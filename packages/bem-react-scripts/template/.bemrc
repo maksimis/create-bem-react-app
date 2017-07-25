@@ -16,7 +16,7 @@
         }
     },
     "modules": {
-        "create-bem-react-app": {
+        "create-lego-react-app": {
             "appPath": ".",
             "appBuild": "build",
             "appPublic": "public",

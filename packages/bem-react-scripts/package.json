@@ -1,14 +1,17 @@
 {
-  "name": "bem-react-scripts",
+  "name": "lego-react-scripts",
   "version": "0.1.2",
   "description": "Configuration and scripts for Create BEM React App.",
-  "repository": "bem/create-bem-react-app",
-  "license": "BSD-3-Clause",
+  "repository": "lego/create-lego-react-app",
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "registry": "http://npm.yandex-team.ru/"
+  },
   "engines": {
     "node": ">=4"
   },
   "bugs": {
-    "url": "https://github.com/bem/create-bem-react-app/issues"
+    "url": "https://github.yandex-team.ru/lego/create-lego-react-app/issues"
   },
   "files": [
     "babelrc",

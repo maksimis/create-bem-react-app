@@ -14,7 +14,7 @@ const path = require('path');
 const fs = require('fs');
 const url = require('url');
 const bemConfig = require('bem-config')();
-const userOptions = bemConfig.moduleSync('create-bem-react-app');
+const userOptions = bemConfig.moduleSync('create-lego-react-app');
 const levels = bemConfig.levelMapSync();
 
 // Make sure any symlinks in the project folder are resolved:
@@ -108,7 +108,7 @@ function resolveOwn(relativePath) {
   return path.resolve(prefix, relativePath);
 }
 
-// config before eject: we're in ./node_modules/bem-react-scripts/config/
+// config before eject: we're in ./node_modules/lego-react-scripts/config/
 module.exports = {
   appPath: resolveApp(userOptions.appPath),
   appBuild: resolveApp(userOptions.appBuild),
@@ -138,10 +138,10 @@ const reactScriptsPath = resolveApp(`node_modules/${ownPackageJson.name}`);
 const reactScriptsLinked = fs.existsSync(reactScriptsPath) &&
   fs.lstatSync(reactScriptsPath).isSymbolicLink();
 
-// config before publish: we're in ./packages/bem-react-scripts/config/
+// config before publish: we're in ./packages/lego-react-scripts/config/
 if (
   !reactScriptsLinked &&
-  __dirname.indexOf(path.join('packages', 'bem-react-scripts', 'config')) !== -1
+  __dirname.indexOf(path.join('packages', 'lego-react-scripts', 'config')) !== -1
 ) {
   module.exports = {
     appPath: resolveApp('.'),

@@ -47,7 +47,7 @@ function exists {
 }
 
 function create_react_app {
-  node "$temp_cli_path"/node_modules/create-bem-react-app/index.js $*
+  node "$temp_cli_path"/node_modules/create-lego-react-app/index.js $*
 }
 
 # Exit the script with a helpful error message when any error is encountered
@@ -77,7 +77,7 @@ fi
 # ******************************************************************************
 
 # Pack CLI
-cd $root_path/packages/create-bem-react-app
+cd $root_path/packages/create-lego-react-app
 cli_path=$PWD/`npm pack`
 
 # Install the CLI in a temporary location
@@ -94,19 +94,20 @@ cd test-app-version-number
 
 # Check corresponding scripts version is installed.
 exists node_modules/react-scripts
-grep '"version": "0.4.0"' node_modules/bem-react-scripts/package.json
+grep '"version": "0.4.0"' node_modules/lego-react-scripts/package.json
 
 # ******************************************************************************
 # Test --scripts-version with a tarball url
 # ******************************************************************************
 
 cd $temp_app_path
-create_react_app --scripts-version=https://registry.npmjs.org/bem-react-scripts/-/bem-react-scripts-0.4.0.tgz test-app-tarball-url
+# TODO: get tarball from npm.yandex-team registry
+create_react_app --scripts-version=https://registry.npmjs.org/lego-react-scripts/-/lego-react-scripts-0.4.0.tgz test-app-tarball-url
 cd test-app-tarball-url
 
 # Check corresponding scripts version is installed.
-exists node_modules/bem-react-scripts
-grep '"version": "0.4.0"' node_modules/bem-react-scripts/package.json
+exists node_modules/lego-react-scripts
+grep '"version": "0.4.0"' node_modules/lego-react-scripts/package.json
 
 # ******************************************************************************
 # Test --scripts-version with a custom fork of react-scripts
@@ -150,6 +151,7 @@ fi
 # ******************************************************************************
 
 cd $temp_app_path
+# TODO: get tarball from npm.yandex-team registry
 curl "https://registry.npmjs.org/@enoah_netzach/react-scripts/-/react-scripts-0.9.0.tgz" -o enoah-scripts-0.9.0.tgz
 create_react_app --scripts-version=$temp_app_path/enoah-scripts-0.9.0.tgz test-app-scoped-fork-tgz
 cd test-app-scoped-fork-tgz

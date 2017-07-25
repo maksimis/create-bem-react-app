@@ -44,9 +44,9 @@ switch (script) {
     break;
   default:
     console.log('Unknown script "' + script + '".');
-    console.log('Perhaps you need to update bem-react-scripts?');
+    console.log('Perhaps you need to update lego-react-scripts?');
     console.log(
-      'See: https://github.com/bem/create-bem-react-app/blob/master/packages/bem-react-scripts/template/README.md#updating-to-new-releases'
+      'See: https://github.yandex-team.ru/lego/create-lego-react-app/blob/master/packages/lego-react-scripts/template/README.md#updating-to-new-releases'
     );
     break;
 }

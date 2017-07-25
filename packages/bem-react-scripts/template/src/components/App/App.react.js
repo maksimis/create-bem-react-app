@@ -1,4 +1,6 @@
 import React from 'react';
+
+// TODO: https://github.yandex-team.ru/lego/islands/pull/2304
 import { decl } from 'islands/common.blocks/i-bem/i-bem.react.js';
 
 import AppHeader from 'e:header';
@@ -9,7 +11,7 @@ import Showcase from 'b:showcase';
 
 export default decl(
   {
-    block: 'App',
+    block: 'app',
     content({ welcomeMsg }) {
       return [
         <AppWelcome msg={welcomeMsg} key="welcome" />,

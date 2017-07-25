@@ -1,4 +1,6 @@
 import React from 'react';
+
+// TODO: https://github.yandex-team.ru/lego/islands/pull/2304
 import { decl } from 'islands/common.blocks/i-bem/i-bem.react.js';
 
 import Header from 'b:header2';
@@ -14,7 +16,7 @@ import UserAccount from 'b:user-account';
 const logoName = process.env.BEM_LANG === 'ru' ? 'ys-ru-86x35' : 'ys-en-87x35';
 
 export default decl({
-  block: 'App',
+  block: 'app',
   elem: 'header',
   content() {
     return (

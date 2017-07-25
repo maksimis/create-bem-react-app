@@ -1,10 +1,12 @@
 import React from 'react';
+
+// TODO: https://github.yandex-team.ru/lego/islands/pull/2304
 import { decl } from 'islands/common.blocks/i-bem/i-bem.react.js';
 
 import Footer from 'b:footer';
 
 export default decl({
-  block: 'App',
+  block: 'app',
   elem: 'footer',
   content() {
     return (

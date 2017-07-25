@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 import BPage from 'b:b-page';
-import App from 'b:App';
+import App from 'b:app';
 
 export const mainView = props => (
   <BPage mix={{ block: 'b-page', elem: 'body' }}>

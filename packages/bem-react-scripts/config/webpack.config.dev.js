@@ -157,7 +157,7 @@ module.exports = {
             },
           },
         ],
-        include: paths.appSrc,
+        include: [paths.appSrc].concat(Object.keys(paths.appLevels)),
       },
       // ** ADDING/UPDATING LOADERS **
       // The "url" loader handles all assets unless explicitly excluded.

@@ -192,7 +192,7 @@ module.exports = {
             },
           },
         ],
-        include: paths.appSrc,
+        include: [paths.appSrc].concat(Object.keys(paths.appLevels)),
       },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.

@@ -79,6 +79,7 @@ my-app/
       App.js
       App.test.js
     Page/
+      Page.inline.svg
       Page.css
     index.js
 ```
@@ -118,6 +119,7 @@ Currently it includes something more than original Create React App package:
 * [webpack-bem-loader](https://github.com/bem/webpack-bem-loader)
 * [babel-plugin-bem-import](https://github.com/bem/babel-plugin-bem-import)
 * [bem-react-core](https://github.com/bem/bem-react-core)
+* [raw-loader](https://github.com/webpack-contrib/raw-loader) includes content of *.inline.* files
 
 ## Contributing
 
